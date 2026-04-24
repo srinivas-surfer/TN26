@@ -5,7 +5,7 @@
 
 set -euo pipefail
 echo "═══════════════════════════════════════════════════"
-echo "  TN2026 Election Intelligence — EC2 Deployment"
+echo "  TN26 Election Intelligence — EC2 Deployment"
 echo "═══════════════════════════════════════════════════"
 
 # ── 1. System update ──────────────────────────────────────
@@ -59,11 +59,11 @@ sudo ufw allow 22/tcp 2>/dev/null || true
 
 # ── 5. Clone / copy project ──────────────────────────────
 echo "[5/7] Setting up project..."
-PROJECT_DIR="$HOME/tn2026"
+PROJECT_DIR="$HOME/TN26"
 if [ ! -d "$PROJECT_DIR" ]; then
   echo "  ERROR: Project directory not found at $PROJECT_DIR"
   echo "  Please upload project files first:"
-  echo "    scp -r ./tn2026 ec2-user@<IP>:~/"
+  echo "    scp -r ./TN26 ec2-user@<IP>:~/"
   exit 1
 fi
 cd "$PROJECT_DIR"
@@ -87,7 +87,7 @@ docker compose ps
 PUBLIC_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4 2>/dev/null || echo "<your-ip>")
 echo ""
 echo "═══════════════════════════════════════════════════"
-echo "  ✓ TN2026 deployed successfully!"
+echo "  ✓ TN26 deployed successfully!"
 echo ""
 echo "  Dashboard:  http://${PUBLIC_IP}"
 echo "  API docs:   http://${PUBLIC_IP}/api/docs"
