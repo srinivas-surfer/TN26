@@ -17,6 +17,10 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+# Set PYTHONPATH to include user packages
+ENV PYTHONPATH=/root/.local/lib/python3.11/site-packages:$PYTHONPATH
+ENV PATH=/root/.local/bin:$PATH
+
 # Copy installed packages from builder
 COPY --from=builder /root/.local /root/.local
 
