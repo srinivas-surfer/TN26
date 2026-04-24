@@ -13,7 +13,7 @@ services:
     restart: unless-stopped
     command: >
       mongod
-      --wiredTigerCacheSizeGB 0.15
+      --wiredTigerCacheSizeGB 0.25
       --quiet
       --logpath /dev/null
     volumes:
