@@ -17,16 +17,15 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Set PYTHONPATH to include user packages
-ENV PYTHONPATH=/root/.local/lib/python3.11/site-packages:$PYTHONPATH
-ENV PATH=/root/.local/bin:$PATH
-
 # Copy installed packages from builder
 COPY --from=builder /root/.local /root/.local
 
+# Fix ownership BEFORE switching user
+RUN chown -R tn2026user:tn2026user /root/.local
+
 # Copy application code
 COPY app/           ./app/
-COPY train.py       ./train.py
+COPY train.py       ./train.py/
 COPY data/          ./data/
 
 # Create models directory
@@ -36,11 +35,11 @@ RUN mkdir -p /app/models
 RUN useradd -m -u 1000 tn2026user && chown -R tn2026user:tn2026user /app
 USER tn2026user
 
-ENV PATH=/root/.local/bin:$PATH \
-    PYTHONPATH=/app \
+# Set PYTHONPATH AFTER user switch - critical!
+ENV PYTHONPATH=/root/.local/lib/python3.11/site-packages:/app:$PYTHONPATH \
+    PATH=/root/.local/bin:$PATH \
     PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    # Limit numpy threads — critical on t2.micro
     OMP_NUM_THREADS=1 \
     OPENBLAS_NUM_THREADS=1 \
     MKL_NUM_THREADS=1
