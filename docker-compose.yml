@@ -38,8 +38,8 @@ services:
   # ── 2. Backend (FastAPI + ML) ──────────────────────────
   backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: backend/Dockerfile
     container_name: tn2026_backend
     restart: unless-stopped
     environment:

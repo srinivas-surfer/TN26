@@ -10,9 +10,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
-COPY app/           ./app/
-COPY train.py       ./train.py
-COPY data/          ./data/
+COPY backend/app/   ./app/
+COPY backend/train.py ./train.py
+COPY backend/data/ ./data/
+COPY backend/requirements.txt .
+COPY scraper/      ./scraper/
 
 # Create models directory
 RUN mkdir -p /app/models
