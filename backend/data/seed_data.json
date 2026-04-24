@@ -1,0 +1,174 @@
+{
+  "constituencies": [
+    {"id": 1, "name": "Chennai Central", "region": "Chennai", "total_voters": 185000},
+    {"id": 2, "name": "Chennai North", "region": "Chennai", "total_voters": 210000},
+    {"id": 3, "name": "Chennai South", "region": "Chennai", "total_voters": 198000},
+    {"id": 4, "name": "Coimbatore North", "region": "Western TN", "total_voters": 225000},
+    {"id": 5, "name": "Coimbatore South", "region": "Western TN", "total_voters": 219000},
+    {"id": 6, "name": "Madurai East", "region": "Southern TN", "total_voters": 195000},
+    {"id": 7, "name": "Madurai West", "region": "Southern TN", "total_voters": 188000},
+    {"id": 8, "name": "Trichy West", "region": "Central TN", "total_voters": 202000},
+    {"id": 9, "name": "Trichy East", "region": "Central TN", "total_voters": 196000},
+    {"id": 10, "name": "Salem West", "region": "Northern TN", "total_voters": 178000},
+    {"id": 11, "name": "Tirunelveli", "region": "Southern TN", "total_voters": 172000},
+    {"id": 12, "name": "Vellore", "region": "Northern TN", "total_voters": 193000},
+    {"id": 13, "name": "Erode East", "region": "Western TN", "total_voters": 168000},
+    {"id": 14, "name": "Thanjavur", "region": "Delta TN", "total_voters": 182000},
+    {"id": 15, "name": "Cuddalore", "region": "Delta TN", "total_voters": 175000}
+  ],
+  "regions": ["Chennai", "Western TN", "Southern TN", "Central TN", "Northern TN", "Delta TN"],
+  "parties": ["DMK", "AIADMK", "BJP", "Congress", "PMK", "VCK", "ADMK", "NTK"],
+  "historical_polls": [
+    {
+      "source": "ABP-CVoter",
+      "date": "2024-01-15",
+      "party": "DMK",
+      "vote_share": 42.1,
+      "seat_low": 125,
+      "seat_high": 145,
+      "region": "statewide"
+    },
+    {
+      "source": "ABP-CVoter",
+      "date": "2024-01-15",
+      "party": "AIADMK",
+      "vote_share": 31.5,
+      "seat_low": 70,
+      "seat_high": 90,
+      "region": "statewide"
+    },
+    {
+      "source": "ABP-CVoter",
+      "date": "2024-01-15",
+      "party": "BJP",
+      "vote_share": 10.2,
+      "seat_low": 5,
+      "seat_high": 15,
+      "region": "statewide"
+    },
+    {
+      "source": "ABP-CVoter",
+      "date": "2024-01-15",
+      "party": "PMK",
+      "vote_share": 5.8,
+      "seat_low": 8,
+      "seat_high": 14,
+      "region": "statewide"
+    },
+    {
+      "source": "News18",
+      "date": "2024-03-10",
+      "party": "DMK",
+      "vote_share": 43.5,
+      "seat_low": 128,
+      "seat_high": 148,
+      "region": "statewide"
+    },
+    {
+      "source": "News18",
+      "date": "2024-03-10",
+      "party": "AIADMK",
+      "vote_share": 30.2,
+      "seat_low": 65,
+      "seat_high": 85,
+      "region": "statewide"
+    },
+    {
+      "source": "News18",
+      "date": "2024-03-10",
+      "party": "BJP",
+      "vote_share": 11.0,
+      "seat_low": 6,
+      "seat_high": 16,
+      "region": "statewide"
+    },
+    {
+      "source": "NDTV",
+      "date": "2024-06-20",
+      "party": "DMK",
+      "vote_share": 44.2,
+      "seat_low": 130,
+      "seat_high": 150,
+      "region": "statewide"
+    },
+    {
+      "source": "NDTV",
+      "date": "2024-06-20",
+      "party": "AIADMK",
+      "vote_share": 29.8,
+      "seat_low": 62,
+      "seat_high": 80,
+      "region": "statewide"
+    },
+    {
+      "source": "NDTV",
+      "date": "2024-06-20",
+      "party": "BJP",
+      "vote_share": 11.5,
+      "seat_low": 7,
+      "seat_high": 17,
+      "region": "statewide"
+    },
+    {
+      "source": "CVoter",
+      "date": "2024-09-05",
+      "party": "DMK",
+      "vote_share": 45.0,
+      "seat_low": 133,
+      "seat_high": 153,
+      "region": "statewide"
+    },
+    {
+      "source": "CVoter",
+      "date": "2024-09-05",
+      "party": "AIADMK",
+      "vote_share": 28.5,
+      "seat_low": 58,
+      "seat_high": 76,
+      "region": "statewide"
+    },
+    {
+      "source": "CVoter",
+      "date": "2024-09-05",
+      "party": "BJP",
+      "vote_share": 12.2,
+      "seat_low": 8,
+      "seat_high": 18,
+      "region": "statewide"
+    },
+    {
+      "source": "ABP-CVoter",
+      "date": "2025-01-10",
+      "party": "DMK",
+      "vote_share": 44.8,
+      "seat_low": 131,
+      "seat_high": 151,
+      "region": "statewide"
+    },
+    {
+      "source": "ABP-CVoter",
+      "date": "2025-01-10",
+      "party": "AIADMK",
+      "vote_share": 28.9,
+      "seat_low": 60,
+      "seat_high": 78,
+      "region": "statewide"
+    },
+    {
+      "source": "ABP-CVoter",
+      "date": "2025-01-10",
+      "party": "BJP",
+      "vote_share": 12.8,
+      "seat_low": 9,
+      "seat_high": 19,
+      "region": "statewide"
+    }
+  ],
+  "regional_strength": {
+    "DMK": {"Chennai": 0.48, "Western TN": 0.40, "Southern TN": 0.42, "Central TN": 0.44, "Northern TN": 0.41, "Delta TN": 0.46},
+    "AIADMK": {"Chennai": 0.25, "Western TN": 0.32, "Southern TN": 0.30, "Central TN": 0.28, "Northern TN": 0.33, "Delta TN": 0.27},
+    "BJP": {"Chennai": 0.10, "Western TN": 0.15, "Southern TN": 0.08, "Central TN": 0.11, "Northern TN": 0.14, "Delta TN": 0.09},
+    "PMK": {"Chennai": 0.04, "Western TN": 0.06, "Southern TN": 0.04, "Central TN": 0.05, "Northern TN": 0.08, "Delta TN": 0.04},
+    "Congress": {"Chennai": 0.05, "Western TN": 0.04, "Southern TN": 0.06, "Central TN": 0.05, "Northern TN": 0.04, "Delta TN": 0.06}
+  }
+}
