@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import List, Dict
 
 # Path fix for running as module
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+sys.path.insert(0, "/app")
 
 from scraper.ndtv_scraper import NDTVScraper
 from scraper.abp_scraper import ABPCVoterScraper, News18Scraper

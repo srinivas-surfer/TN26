@@ -51,6 +51,7 @@ services:
       FRONTEND_URL: "*"
       OMP_NUM_THREADS: "1"        # prevent thread explosion
       OPENBLAS_NUM_THREADS: "1"
+      PYTHONPATH: /app            # ensure scraper module is found
     volumes:
       - model_data:/app/models    # persist trained models
     depends_on:
