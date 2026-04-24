@@ -13,18 +13,15 @@ from typing import List, Dict
 # Path fix for running as module
 sys.path.insert(0, "/app")
 
-from scraper.ndtv_scraper import NDTVScraper
-from scraper.abp_scraper import ABPCVoterScraper, News18Scraper
-from scraper.normalizer import normalize_records, aggregate_poll_of_polls
-from app.utils.db import get_db
-from app.utils.cache import cache_invalidate
-from app.ml.predictor import predict_all_parties
-
 logger = logging.getLogger("tn2026.pipeline")
 
 
 async def run_scrapers() -> List[Dict]:
     """Run all scrapers concurrently."""
+    # Lazy imports — avoid top-level import errors
+    from scraper.ndtv_scraper import NDTVScraper
+    from scraper.abp_scraper import ABPCVoterScraper, News18Scraper
+    
     scrapers = [NDTVScraper(), ABPCVoterScraper(), News18Scraper()]
     all_records = []
 
@@ -49,6 +46,7 @@ async def run_scrapers() -> List[Dict]:
 
 async def store_polls(db, records: List[Dict]) -> int:
     """Upsert poll records into MongoDB."""
+    from app.utils.db import get_db
     stored = 0
     for rec in records:
         try:
@@ -65,6 +63,8 @@ async def store_polls(db, records: List[Dict]) -> int:
 
 async def run_predictions(db) -> None:
     """Run ML predictions and store results."""
+    from app.ml.predictor import predict_all_parties
+    
     # Fetch all polls grouped by party
     polls_by_party: Dict[str, List] = {}
     cursor = db.polls.find(
@@ -100,6 +100,8 @@ async def run_predictions(db) -> None:
 
 async def seed_db_if_empty(db) -> None:
     """Load seed data on first run."""
+    from scraper.normalizer import normalize_records
+    
     count = await db.polls.count_documents({})
     if count > 0:
         return
@@ -120,7 +122,6 @@ async def seed_db_if_empty(db) -> None:
         )
 
     # Seed historical polls
-    from scraper.normalizer import normalize_records
     records = normalize_records(seed["historical_polls"])
     for rec in records:
         await db.polls.insert_one(rec)
@@ -130,6 +131,10 @@ async def seed_db_if_empty(db) -> None:
 
 async def run_pipeline():
     """Full pipeline: scrape → normalize → store → predict."""
+    from scraper.normalizer import normalize_records, aggregate_poll_of_polls
+    from app.utils.db import get_db
+    from app.utils.cache import cache_invalidate
+    
     start = datetime.utcnow()
     logger.info("═══ Pipeline run started ═══")
     db = get_db()
