@@ -20,19 +20,18 @@ WORKDIR /app
 # Copy installed packages from builder
 COPY --from=builder /root/.local /root/.local
 
-# Fix ownership BEFORE switching user
-RUN chown -R tn2026user:tn2026user /root/.local
-
 # Copy application code
 COPY app/           ./app/
-COPY train.py       ./train.py/
+COPY train.py       ./train.py
 COPY data/          ./data/
 
 # Create models directory
 RUN mkdir -p /app/models
 
-# Non-root user for security
-RUN useradd -m -u 1000 tn2026user && chown -R tn2026user:tn2026user /app
+# Non-root user for security (create BEFORE chown)
+RUN useradd -m -u 1000 tn2026user && \
+    chown -R tn2026user:tn2026user /root/.local && \
+    chown -R tn2026user:tn2026user /app
 USER tn2026user
 
 # Set PYTHONPATH AFTER user switch - critical!
