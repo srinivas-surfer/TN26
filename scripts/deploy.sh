@@ -70,7 +70,7 @@ cd "$PROJECT_DIR"
 
 # ── 6. Train models (offline, before API starts) ─────────
 echo "[6/7] Training ML models..."
-docker compose build backend --quiet
+docker compose build --no-cache backend --quiet
 docker compose run --rm backend python train.py
 echo "  ✓ Models trained and saved"
 
